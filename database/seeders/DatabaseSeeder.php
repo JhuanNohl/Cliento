@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Demo CRM',
             'email' => 'demo@microcrm.test',
+            'password' => 'password',
         ]);
 
         $companies = collect([
