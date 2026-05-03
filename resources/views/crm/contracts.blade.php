@@ -1,12 +1,12 @@
 @extends('crm.layout')
 
-@section('title', 'Contracts')
+@section('title', 'Contratos')
 @section('active', 'contracts')
 
 @section('content')
     <section class="page-head">
         <div>
-            <p class="eyebrow">Contracts</p>
+            <p class="eyebrow">Contratos</p>
             <h1>Contratos e renovações em um lugar só.</h1>
             <p class="lead">A primeira camada acompanha vigência, cliente e status. Depois entram assinatura, cláusulas, alertas e análise jurídica assistida.</p>
         </div>
@@ -19,7 +19,7 @@
                     <tr>
                         <th>Contrato</th>
                         <th>Cliente</th>
-                        <th>Vigencia</th>
+                        <th>Vigência</th>
                         <th>Status</th>
                     </tr>
                 </thead>
@@ -34,7 +34,7 @@
         <aside class="panel">
             <div class="panel-header">
                 <div>
-                    <h2>Evolucao possivel</h2>
+                    <h2>Evolução possível</h2>
                     <p>Assinatura eletrônica, versionamento, alertas de renovação e revisão automática de riscos.</p>
                 </div>
             </div>

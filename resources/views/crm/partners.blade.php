@@ -7,8 +7,8 @@
     <section class="page-head">
         <div>
             <p class="eyebrow">Parceiros</p>
-            <h1>Empresas e canais que ajudam a gerar relacionamento comercial.</h1>
-            <p class="lead">A tela concentra parceiros estratégicos, origem de oportunidades e status do relacionamento.</p>
+            <h1>Canais e contas estratégicas que ampliam relacionamento comercial.</h1>
+            <p class="lead">No MVP, parceiro não precisa de uma área pesada: basta registrar origem, responsável e status para entender quem ajuda a gerar oportunidade.</p>
         </div>
         <div class="head-actions">
             <a class="btn-crm primary" href="{{ route('companies.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo parceiro</a>

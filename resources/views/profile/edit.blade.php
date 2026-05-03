@@ -1,29 +1,27 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('crm.layout')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+@section('title', 'Perfil')
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
+@section('content')
+    <section class="page-head">
+        <div>
+            <p class="eyebrow">Configurações</p>
+            <h1>Perfil e segurança da conta.</h1>
+            <p class="lead">Dados pessoais, senha e encerramento de conta usando a mesma linguagem visual do CRM.</p>
         </div>
-    </div>
-</x-app-layout>
+    </section>
+
+    <section class="page-grid">
+        <div class="panel form-panel">
+            @include('profile.partials.update-profile-information-form')
+        </div>
+
+        <aside class="panel form-panel">
+            @include('profile.partials.update-password-form')
+        </aside>
+    </section>
+
+    <section class="panel form-panel">
+        @include('profile.partials.delete-user-form')
+    </section>
+@endsection

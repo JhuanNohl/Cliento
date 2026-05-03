@@ -1,12 +1,12 @@
 @extends('crm.layout')
 
-@section('title', 'Accounts')
+@section('title', 'Contas')
 @section('active', 'accounts')
 
 @section('content')
     <section class="page-head">
         <div>
-            <p class="eyebrow">Accounts</p>
+            <p class="eyebrow">Contas</p>
             <h1>Empresas com contexto comercial mínimo.</h1>
             <p class="lead">Cadastro, responsável, segmento e status já resolvem a operação inicial. Enriquecimento e hierarquia de contas podem vir depois.</p>
         </div>
@@ -37,7 +37,7 @@
         <aside class="panel">
             <div class="panel-header">
                 <div>
-                    <h2>Evolucao possivel</h2>
+                    <h2>Evolução possível</h2>
                     <p>Account scoring, enriquecimento automático, matriz filial/grupo e mapa de relacionamento.</p>
                 </div>
             </div>

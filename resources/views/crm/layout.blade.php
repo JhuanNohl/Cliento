@@ -72,6 +72,7 @@
         .nav-link,
         .nav-button,
         .topbar,
+        .topbar-actions,
         .head-actions,
         .button-row,
         .metric-meta,
@@ -104,32 +105,6 @@
             color: var(--ink);
             background: var(--paper);
             border-radius: 8px;
-        }
-
-        .sidebar-search {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid #333333;
-            background: #181818;
-            border-radius: 7px;
-        }
-
-        .sidebar-search {
-            padding: 9px 10px;
-            color: #d9d9d9;
-        }
-
-        .sidebar-search input {
-            width: 100%;
-            min-width: 0;
-            border: 0;
-            outline: 0;
-            background: transparent;
-        }
-
-        .sidebar-search input {
-            color: var(--paper);
         }
 
         .nav-label {
@@ -201,16 +176,42 @@
             font-weight: 700;
         }
 
-        .auth-actions a,
-        .auth-actions button {
-            color: inherit;
-            border: 0;
-            background: transparent;
+        .auth-actions form {
+            margin: 0;
         }
 
-        .auth-separator,
+        .auth-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            min-height: 34px;
+            padding: 0 10px;
+            color: #f4f4f4;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            background: #101010;
+            transition:
+                transform .18s ease,
+                color .18s ease,
+                background-color .18s ease,
+                border-color .18s ease,
+                box-shadow .18s ease;
+        }
+
+        .auth-action:hover,
+        .auth-action:focus {
+            color: var(--ink);
+            background: var(--paper);
+            border-color: var(--paper);
+            box-shadow: 0 10px 24px rgba(255, 255, 255, .12);
+            transform: translateY(-2px);
+        }
+
         .auth-disabled {
             color: #8f8f8f;
+            opacity: .55;
+            pointer-events: none;
         }
 
         .main {
@@ -219,11 +220,16 @@
         }
 
         .topbar {
-            justify-content: flex-start;
+            justify-content: flex-end;
             min-height: 62px;
             padding: 12px 18px;
             border-bottom: 1px solid var(--line);
             background: var(--paper);
+        }
+
+        .topbar-actions {
+            gap: 8px;
+            margin-left: auto;
         }
 
         .icon-btn {
@@ -257,21 +263,12 @@
             border-radius: 999px;
             font-size: 12px;
             font-weight: 700;
-            opacity: 0;
-            transform: translateX(-4px);
-            transition: opacity .18s ease, transform .18s ease;
-        }
-
-        .notification-wrap:hover .notification-count,
-        .notification-wrap:focus-within .notification-count {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         .notification-popover {
             position: absolute;
             top: calc(100% + 10px);
-            left: 0;
+            right: 0;
             z-index: 10;
             width: 250px;
             padding: 12px;
@@ -511,8 +508,15 @@
             border-bottom: 1px solid var(--line);
         }
 
+        .panel-header.compact {
+            padding: 0 0 14px;
+        }
+
         .ghost-link {
             color: var(--ink);
+            padding: 0;
+            border: 0;
+            background: transparent;
             font-size: 13px;
             font-weight: 700;
             white-space: nowrap;
@@ -606,6 +610,120 @@
             text-transform: uppercase;
         }
 
+        .table-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .empty-state,
+        .status-alert {
+            padding: 14px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .status-alert {
+            margin-bottom: 14px;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #f8f8f8;
+            font-weight: 700;
+        }
+
+        .form-panel {
+            display: grid;
+            gap: 14px;
+            max-width: 780px;
+            padding: 18px;
+        }
+
+        .form-panel.flush {
+            padding: 14px 0 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .form-grid.three {
+            grid-template-columns: minmax(0, 2fr) minmax(120px, .7fr);
+        }
+
+        .form-field {
+            display: grid;
+            gap: 7px;
+        }
+
+        .form-field label {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            min-height: 40px;
+            padding: 9px 10px;
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--paper);
+            outline: 0;
+        }
+
+        .form-field textarea {
+            min-height: 112px;
+            resize: vertical;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            border-color: var(--ink);
+            box-shadow: 0 0 0 3px rgba(5, 5, 5, .08);
+        }
+
+        .form-actions {
+            justify-content: flex-end;
+        }
+
+        .form-error {
+            color: #9f1d1d;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .pagination-wrap {
+            margin-top: 14px;
+        }
+
+        .pagination-wrap nav > div:first-child {
+            display: none;
+        }
+
+        .pagination-wrap nav > div:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .pagination-wrap a,
+        .pagination-wrap span {
+            color: inherit;
+        }
+
         .pill {
             display: inline-flex;
             padding: 5px 8px;
@@ -632,11 +750,11 @@
             position: fixed;
             top: 10px;
             bottom: 10px;
-            left: 252px;
+            right: 10px;
             z-index: 21;
             display: flex;
             flex-direction: column;
-            width: min(360px, calc(100vw - 282px));
+            width: min(380px, calc(100vw - 40px));
             padding: 14px;
             color: var(--ink);
             background: var(--paper);
@@ -645,7 +763,7 @@
             box-shadow: 0 22px 45px rgba(0, 0, 0, .18);
             opacity: 0;
             pointer-events: none;
-            transform: translateX(-18px);
+            transform: translateX(18px);
             transition: opacity .2s ease, transform .2s ease;
         }
 
@@ -720,7 +838,6 @@
             .brand span:not(.brand-mark),
             .nav-link span:not(.nav-icon),
             .nav-button span:not(.nav-icon),
-            .sidebar-search,
             .nav-label,
             .sidebar-foot {
                 display: none;
@@ -732,8 +849,8 @@
             }
 
             .settings-drawer {
-                left: 98px;
-                width: min(360px, calc(100vw - 128px));
+                right: 10px;
+                width: min(380px, calc(100vw - 118px));
             }
         }
 
@@ -746,6 +863,11 @@
 
             .split-grid,
             .page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid,
+            .form-grid.three {
                 grid-template-columns: 1fr;
             }
         }
@@ -766,11 +888,15 @@
                 justify-content: center;
             }
 
-            .topbar,
             .page-head,
             .panel-header {
                 align-items: flex-start;
                 flex-direction: column;
+            }
+
+            .topbar {
+                align-items: center;
+                flex-direction: row;
             }
 
             .metrics-grid,
@@ -795,8 +921,7 @@
                 top: 6px;
                 right: 6px;
                 bottom: 6px;
-                left: 76px;
-                width: auto;
+                width: min(360px, calc(100vw - 88px));
             }
         }
     </style>
@@ -806,6 +931,9 @@
         $active = $active ?? trim($__env->yieldContent('active', 'home'));
         $navItems = [
             ['key' => 'home', 'label' => 'Início', 'icon' => 'home', 'route' => 'home'],
+            ['key' => 'dashboard', 'label' => 'Dashboard', 'icon' => 'dashboard', 'route' => 'dashboard'],
+            ['key' => 'companies', 'label' => 'Empresas', 'icon' => 'briefcase', 'route' => 'companies.index'],
+            ['key' => 'contacts', 'label' => 'Contatos', 'icon' => 'user', 'route' => 'contacts.index'],
             ['key' => 'statistics', 'label' => 'Estatísticas', 'icon' => 'stats', 'route' => 'crm.statistics'],
             ['key' => 'partners', 'label' => 'Parceiros', 'icon' => 'briefcase', 'route' => 'crm.partners'],
             ['key' => 'wallet', 'label' => 'Carteira', 'icon' => 'folder-open', 'route' => 'crm.wallet'],
@@ -814,6 +942,10 @@
             ['key' => 'opportunities', 'label' => 'Oportunidades', 'icon' => 'usd', 'route' => 'crm.opportunities'],
             ['key' => 'reports', 'label' => 'Relatórios', 'icon' => 'list-alt', 'route' => 'crm.reports'],
         ];
+        $notificationCount = $notificationCount ?? 4;
+        $notificationLabel = $notificationCount === 1
+            ? '1 notificação pendente'
+            : $notificationCount . ' notificações pendentes';
     @endphp
 
     <div class="crm-shell">
@@ -823,13 +955,8 @@
                 <span>Cliento</span>
             </a>
 
-            <label class="sidebar-search">
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                <input type="search" placeholder="Search">
-            </label>
-
             <nav>
-                <p class="nav-label">Sales</p>
+                <p class="nav-label">Menu</p>
                 <ul class="nav-list">
                     @foreach ($navItems as $item)
                         <li>
@@ -839,28 +966,28 @@
                             </a>
                         </li>
                     @endforeach
-                    <li>
-                        <button class="nav-button reactive" id="settingsToggle" type="button" aria-expanded="false" aria-controls="settingsDrawer">
-                            <span class="nav-icon glyphicon glyphicon-cog" aria-hidden="true"></span>
-                            <span>Configurações</span>
-                        </button>
-                    </li>
                 </ul>
             </nav>
 
             <div class="sidebar-foot">
-                <strong>MVP first</strong>
-                <span>Operação simples hoje. Integrações e IA depois.</span>
                 <div class="auth-actions">
-                    <a class="reactive" href="{{ route('login') }}">Entrar</a>
-                    <span class="auth-separator">|</span>
+                    <a class="auth-action" href="{{ route('login') }}" title="Entrar">
+                        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                        <span>Entrar</span>
+                    </a>
                     @auth
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button class="reactive" type="submit">Sair</button>
+                            <button class="auth-action" type="submit" title="Sair">
+                                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                <span>Sair</span>
+                            </button>
                         </form>
                     @else
-                        <span class="auth-disabled">Sair</span>
+                        <span class="auth-action auth-disabled">
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                            <span>Sair</span>
+                        </span>
                     @endauth
                 </div>
             </div>
@@ -868,15 +995,21 @@
 
         <main class="main">
             <header class="topbar">
-                <div class="notification-wrap">
-                    <button class="icon-btn notification-btn reactive" type="button" title="Notificações">
-                        <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
-                        <span class="notification-count">4</span>
-                    </button>
-                    <div class="notification-popover" role="status">
-                        <strong>4 informações pendentes</strong>
-                        <span>2 follow-ups vencem hoje, 1 oportunidade mudou de etapa e 1 relatório semanal está pronto.</span>
+                <div class="topbar-actions">
+                    <div class="notification-wrap">
+                        <button class="icon-btn notification-btn reactive" type="button" title="{{ $notificationLabel }}" aria-label="{{ $notificationLabel }}">
+                            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
+                            <span class="notification-count">{{ $notificationCount }}</span>
+                        </button>
+                        <div class="notification-popover" role="status">
+                            <strong>{{ $notificationLabel }}</strong>
+                            <span>2 follow-ups vencem hoje, 1 oportunidade mudou de etapa e 1 relatório semanal está pronto.</span>
+                        </div>
                     </div>
+
+                    <button class="icon-btn reactive" id="settingsToggle" type="button" title="Configurações" aria-label="Configurações" aria-expanded="false" aria-controls="settingsDrawer">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </button>
                 </div>
             </header>
 
@@ -893,7 +1026,7 @@
             <div>
                 <p class="eyebrow">Settings</p>
                 <h2>Configurações</h2>
-                <p>Opções disponíveis para personalizar, proteger e preparar o Cliento para uma operação maior.</p>
+                <p>Ajustes essenciais para usar agora e caminhos claros para escalar o CRM depois.</p>
             </div>
             <button class="icon-btn reactive" id="settingsClose" type="button" title="Fechar configurações">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -939,7 +1072,7 @@
             </li>
         </ul>
 
-        <p class="settings-foot">Estas entradas são demonstrativas para o MVP. Elas indicam áreas naturais de expansão sem exigir CRUDs completos agora.</p>
+        <p class="settings-foot">Estas entradas mostram a ambição do produto sem inflar o MVP: o essencial funciona hoje, e as próximas camadas já têm lugar definido.</p>
     </aside>
 
     <script>

@@ -1,12 +1,12 @@
 @extends('crm.layout')
 
-@section('title', 'Orders')
+@section('title', 'Pedidos')
 @section('active', 'orders')
 
 @section('content')
     <section class="page-head">
         <div>
-            <p class="eyebrow">Orders</p>
+            <p class="eyebrow">Pedidos</p>
             <h1>Pedidos para fechar o ciclo venda-operação.</h1>
             <p class="lead">O MVP registra pedidos fechados e status de entrega. Integrações com ERP, faturamento e pagamento ficam mapeadas.</p>
         </div>
@@ -34,8 +34,8 @@
         <aside class="panel">
             <div class="panel-header">
                 <div>
-                    <h2>Evolucao possivel</h2>
-                    <p>ERP, nota fiscal, cobranca recorrente, portal do cliente e acompanhamento de sucesso.</p>
+                    <h2>Evolução possível</h2>
+                    <p>ERP, nota fiscal, cobrança recorrente, portal do cliente e acompanhamento de sucesso.</p>
                 </div>
             </div>
         </aside>

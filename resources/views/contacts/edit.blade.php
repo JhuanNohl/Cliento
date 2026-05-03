@@ -1,11 +1,16 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-900">Editar contato</h2>
-    </x-slot>
+@extends('crm.layout')
 
-    <div class="py-10">
-        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            @include('contacts.partials.form', ['action' => route('contacts.update', $contact), 'method' => 'PATCH'])
+@section('title', 'Editar contato')
+@section('active', 'contacts')
+
+@section('content')
+    <section class="page-head">
+        <div>
+            <p class="eyebrow">Contatos</p>
+            <h1>Editar contato</h1>
+            <p class="lead">Mantenha cargo, empresa, canais e último contato atualizados para preservar o contexto da carteira.</p>
         </div>
-    </div>
-</x-app-layout>
+    </section>
+
+    @include('contacts.partials.form', ['action' => route('contacts.update', $contact), 'method' => 'PATCH'])
+@endsection

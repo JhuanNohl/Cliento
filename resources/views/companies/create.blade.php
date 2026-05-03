@@ -1,11 +1,16 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-900">Nova empresa</h2>
-    </x-slot>
+@extends('crm.layout')
 
-    <div class="py-10">
-        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            @include('companies.partials.form', ['action' => route('companies.store'), 'method' => null])
+@section('title', 'Nova empresa')
+@section('active', 'companies')
+
+@section('content')
+    <section class="page-head">
+        <div>
+            <p class="eyebrow">Empresas</p>
+            <h1>Nova empresa</h1>
+            <p class="lead">Cadastre a conta com o mínimo necessário para acompanhar prospecção, carteira e próximos contatos.</p>
         </div>
-    </div>
-</x-app-layout>
+    </section>
+
+    @include('companies.partials.form', ['action' => route('companies.store'), 'method' => null])
+@endsection

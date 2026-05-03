@@ -7,8 +7,8 @@
     <section class="page-head">
         <div>
             <p class="eyebrow">Carteira</p>
-            <h1>Contatos, contas e próximos passos reunidos por prioridade.</h1>
-            <p class="lead">A carteira mostra onde o vendedor deve investir atenção hoje, sem duplicar dados de parceiros ou oportunidades.</p>
+            <h1>Prioridade comercial sem perder contatos, contas e próximos passos.</h1>
+            <p class="lead">A carteira responde quem merece atenção hoje. O MVP junta relacionamento e ação para o vendedor não depender de memória, chat ou planilha paralela.</p>
         </div>
         <div class="head-actions">
             <a class="btn-crm primary" href="{{ route('contacts.create') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Novo contato</a>
@@ -37,8 +37,8 @@
         <aside class="panel">
             <div class="panel-header">
                 <div>
-                    <h2>Evolução possível</h2>
-                    <p>Carteira inteligente com score, cadência automática, histórico omnichannel e sugestão de abordagem por IA.</p>
+                    <h2>Para evoluir com dados</h2>
+                    <p>Score de carteira, cadência automática, histórico omnichannel e sugestão de abordagem por IA ficam mais fortes depois que o MVP capturar rotina real.</p>
                 </div>
             </div>
         </aside>

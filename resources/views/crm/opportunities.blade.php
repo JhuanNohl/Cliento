@@ -1,14 +1,14 @@
 @extends('crm.layout')
 
-@section('title', 'Opportunities')
+@section('title', 'Oportunidades')
 @section('active', 'opportunities')
 
 @section('content')
     <section class="page-head">
         <div>
-            <p class="eyebrow">Opportunities</p>
-            <h1>Pipeline comercial com poucas etapas e decisão rapida.</h1>
-            <p class="lead">Valor, probabilidade, etapa e próxima ação são suficientes para vender. Forecast preditivo e simulações ficam para fases seguintes.</p>
+            <p class="eyebrow">Oportunidades</p>
+            <h1>Pipeline curto para decidir rápido e vender com contexto.</h1>
+            <p class="lead">Valor, probabilidade, etapa e próxima ação são o núcleo do MVP. O suficiente para acompanhar receita sem transformar a primeira versão em um monstro de processo.</p>
         </div>
         <div class="head-actions">
             <button class="btn-crm primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova oportunidade</button>
@@ -37,8 +37,8 @@
         <aside class="panel">
             <div class="panel-header">
                 <div>
-                    <h2>Evolucao possivel</h2>
-                    <p>Forecast assistido, simulação de cenários, playbooks por etapa e risco automático.</p>
+                    <h2>Evolucao inteligente</h2>
+                    <p>Forecast assistido, simulação de cenários, playbooks por etapa e alertas de risco podem nascer aqui quando houver dados suficientes.</p>
                 </div>
             </div>
         </aside>

@@ -1,6 +1,6 @@
 # Cliento
 
-Aplicacao de CRM enxuta criada com Laravel, Blade, Tailwind CSS e PostgreSQL. O objetivo e demonstrar um fluxo comercial simples: empresas, contatos, oportunidades, atividades e um dashboard autenticado.
+Aplicação de CRM enxuta criada com Laravel, Blade, Tailwind CSS e PostgreSQL. O objetivo é demonstrar um fluxo comercial simples: empresas, contatos, oportunidades, atividades e um dashboard autenticado.
 
 ## Stack
 
@@ -14,12 +14,12 @@ Aplicacao de CRM enxuta criada com Laravel, Blade, Tailwind CSS e PostgreSQL. O 
 
 ## Recursos Implementados
 
-- Autenticacao com cadastro, login, redefinicao de senha e perfil.
+- Autenticação com cadastro, login, redefinição de senha e perfil.
 - Dashboard com indicadores de empresas, contatos, oportunidades abertas e forecast ponderado.
-- Cadastro, edicao, listagem e remocao de empresas.
-- Cadastro, edicao, listagem e remocao de contatos vinculados a empresas.
+- Cadastro, edição, listagem e remoção de empresas.
+- Cadastro, edição, listagem e remoção de contatos vinculados a empresas.
 - Estrutura de banco para oportunidades e atividades comerciais.
-- Seeder com usuario e dados de demonstracao.
+- Seeder com usuário e dados de demonstração.
 
 ## Como Rodar
 
@@ -49,7 +49,7 @@ npm run build
 php artisan serve
 ```
 
-Usuario demo criado pelo seeder:
+Usuário demo criado pelo seeder:
 
 ```text
 email: demo@microcrm.test

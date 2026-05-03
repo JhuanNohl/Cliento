@@ -1,11 +1,16 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-900">Editar empresa</h2>
-    </x-slot>
+@extends('crm.layout')
 
-    <div class="py-10">
-        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            @include('companies.partials.form', ['action' => route('companies.update', $company), 'method' => 'PATCH'])
+@section('title', 'Editar empresa')
+@section('active', 'companies')
+
+@section('content')
+    <section class="page-head">
+        <div>
+            <p class="eyebrow">Empresas</p>
+            <h1>Editar empresa</h1>
+            <p class="lead">Atualize os dados da conta para manter a carteira coerente com a operação comercial.</p>
         </div>
-    </div>
-</x-app-layout>
+    </section>
+
+    @include('companies.partials.form', ['action' => route('companies.update', $company), 'method' => 'PATCH'])
+@endsection

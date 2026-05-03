@@ -1,12 +1,12 @@
 @extends('crm.layout')
 
-@section('title', 'Quotes')
+@section('title', 'Propostas')
 @section('active', 'quotes')
 
 @section('content')
     <section class="page-head">
         <div>
-            <p class="eyebrow">Quotes</p>
+            <p class="eyebrow">Propostas</p>
             <h1>Propostas comerciais sem burocracia.</h1>
             <p class="lead">A primeira versão pode gerar proposta simples e acompanhar status. Depois entram CPQ, desconto por aprovação e assinatura eletrônica.</p>
         </div>

@@ -1,12 +1,12 @@
 @extends('crm.layout')
 
-@section('title', 'Contacts')
+@section('title', 'Contatos')
 @section('active', 'contacts')
 
 @section('content')
     <section class="page-head">
         <div>
-            <p class="eyebrow">Contacts</p>
+            <p class="eyebrow">Contatos</p>
             <h1>Contatos para centralizar relacionamento.</h1>
             <p class="lead">Nome, empresa, cargo e canais principais formam a base. Histórico omnichannel pode entrar numa próxima fase.</p>
         </div>
@@ -23,7 +23,7 @@
                         <th>Contato</th>
                         <th>Empresa</th>
                         <th>Cargo</th>
-                        <th>Ultima interacao</th>
+                        <th>Última interação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +37,7 @@
         <aside class="panel">
             <div class="panel-header">
                 <div>
-                    <h2>Evolucao possivel</h2>
+                    <h2>Evolução possível</h2>
                     <p>Timeline de email, WhatsApp, ligações, consentimento LGPD e recomendação de abordagem por IA.</p>
                 </div>
             </div>

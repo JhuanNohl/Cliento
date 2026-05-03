@@ -8,7 +8,7 @@
         <div>
             <p class="eyebrow">Leads</p>
             <h1>Entrada simples para oportunidades futuras.</h1>
-            <p class="lead">O MVP separa leads novos, qualificados e descartados. A camada agressiva e scoring automático por fonte, fit e intenção.</p>
+            <p class="lead">O MVP separa leads novos, qualificados e descartados. A camada agressiva é scoring automático por fonte, fit e intenção.</p>
         </div>
         <div class="head-actions">
             <button class="btn-crm primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Novo lead</button>
