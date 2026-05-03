@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <h2 class="text-xl font-semibold leading-tight text-gray-900">Painel comercial</h2>
-                <p class="mt-1 text-sm text-gray-600">Visao geral da carteira, pipeline e proximas acoes.</p>
+                <p class="mt-1 text-sm text-gray-600">Visão geral da carteira, pipeline e próximas ações.</p>
             </div>
             <a href="{{ route('contacts.create') }}" class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700">
                 Novo contato

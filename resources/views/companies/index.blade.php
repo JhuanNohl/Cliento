@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <h2 class="text-xl font-semibold leading-tight text-gray-900">Empresas</h2>
-                <p class="mt-1 text-sm text-gray-600">Organizacoes, contas e prospects acompanhados no CRM.</p>
+                <p class="mt-1 text-sm text-gray-600">Organizações, contas e prospects acompanhados no CRM.</p>
             </div>
             <a href="{{ route('companies.create') }}" class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700">Nova empresa</a>
         </div>
@@ -21,12 +21,12 @@
                         <div class="grid gap-4 px-6 py-5 lg:grid-cols-12 lg:items-center">
                             <div class="lg:col-span-4">
                                 <p class="font-semibold text-gray-950">{{ $company->name }}</p>
-                                <p class="text-sm text-gray-500">{{ $company->segment ?: 'Segmento nao informado' }}</p>
+                                <p class="text-sm text-gray-500">{{ $company->segment ?: 'Segmento não informado' }}</p>
                             </div>
                             <div class="lg:col-span-2">
                                 <span class="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">{{ \App\Models\Company::STATUSES[$company->status] ?? $company->status }}</span>
                             </div>
-                            <p class="text-sm text-gray-600 lg:col-span-2">{{ $company->city ? "{$company->city}/{$company->state}" : 'Localizacao aberta' }}</p>
+                            <p class="text-sm text-gray-600 lg:col-span-2">{{ $company->city ? "{$company->city}/{$company->state}" : 'Localização aberta' }}</p>
                             <p class="text-sm text-gray-600 lg:col-span-2">{{ $company->contacts_count }} contatos · {{ $company->deals_count }} deals</p>
                             <div class="flex items-center gap-3 lg:col-span-2 lg:justify-end">
                                 <a href="{{ route('companies.edit', $company) }}" class="text-sm font-medium text-indigo-700 hover:text-indigo-900">Editar</a>

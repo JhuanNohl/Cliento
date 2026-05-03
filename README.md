@@ -1,4 +1,4 @@
-# MicroCRM
+# Cliento
 
 Aplicacao de CRM enxuta criada com Laravel, Blade, Tailwind CSS e PostgreSQL. O objetivo e demonstrar um fluxo comercial simples: empresas, contatos, oportunidades, atividades e um dashboard autenticado.
 

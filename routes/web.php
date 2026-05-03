@@ -6,11 +6,14 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return auth()->check()
-        ? redirect()->route('dashboard')
-        : redirect()->route('login');
-});
+Route::view('/', 'welcome')->name('home');
+Route::view('/estatisticas', 'crm.statistics')->name('crm.statistics');
+Route::view('/parceiros', 'crm.partners')->name('crm.partners');
+Route::view('/carteira', 'crm.wallet')->name('crm.wallet');
+Route::view('/vendas', 'crm.sales')->name('crm.sales');
+Route::view('/agenda', 'crm.agenda')->name('crm.agenda');
+Route::view('/oportunidades', 'crm.opportunities')->name('crm.opportunities');
+Route::view('/relatorios', 'crm.reports')->name('crm.reports');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
