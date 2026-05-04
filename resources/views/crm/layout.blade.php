@@ -161,11 +161,36 @@
             background: #151515;
         }
 
-        .sidebar-foot span {
-            display: block;
-            margin-top: 4px;
-            color: #c9c9c9;
+        .sidebar-user {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            min-height: 38px;
+            padding: 8px 10px;
+            color: #f4f4f4;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            background: #101010;
+        }
+
+        .sidebar-user-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border: 1px solid currentColor;
+            border-radius: 6px;
             font-size: 12px;
+        }
+
+        .sidebar-user-name {
+            min-width: 0;
+            overflow: hidden;
+            font-size: 13px;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .auth-actions {
@@ -376,9 +401,15 @@
 
         .page-head {
             display: flex;
+            align-items: flex-start;
             justify-content: space-between;
             gap: 20px;
             padding: 20px;
+        }
+
+        .page-head > div:first-child {
+            flex: 1 1 auto;
+            min-width: 0;
         }
 
         .eyebrow {
@@ -426,6 +457,13 @@
         .button-row {
             flex-wrap: wrap;
             gap: 8px;
+        }
+
+        .head-actions {
+            flex: 0 0 auto;
+            justify-content: flex-end;
+            margin-left: auto;
+            padding-top: 2px;
         }
 
         .btn-crm {
@@ -572,7 +610,7 @@
         }
 
         .feature-grid {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             padding: 14px;
         }
 
@@ -894,6 +932,12 @@
                 flex-direction: column;
             }
 
+            .head-actions {
+                justify-content: flex-start;
+                margin-left: 0;
+                padding-top: 0;
+            }
+
             .topbar {
                 align-items: center;
                 flex-direction: row;
@@ -946,6 +990,7 @@
         $notificationLabel = $notificationCount === 1
             ? '1 notificação pendente'
             : $notificationCount . ' notificações pendentes';
+        $sidebarUserName = auth()->user()?->name ?? 'Visitante';
     @endphp
 
     <div class="crm-shell">
@@ -970,6 +1015,11 @@
             </nav>
 
             <div class="sidebar-foot">
+                <div class="sidebar-user" title="{{ $sidebarUserName }}">
+                    <span class="sidebar-user-icon glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <strong class="sidebar-user-name">{{ $sidebarUserName }}</strong>
+                </div>
+
                 <div class="auth-actions">
                     <a class="auth-action" href="{{ route('login') }}" title="Entrar">
                         <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>

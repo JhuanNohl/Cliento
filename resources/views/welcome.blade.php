@@ -31,7 +31,6 @@
         </div>
 
         <div class="feature-grid">
-            <x-crm.feature icon="flash" title="IA comercial" text="Resumos de contas, sugestões de próxima ação e forecast assistido quando houver histórico suficiente." />
             <x-crm.feature icon="transfer" title="Integrações" text="Email, WhatsApp, calendário, ERP, pagamentos e enriquecimento de dados como próximas camadas." />
             <x-crm.feature icon="stats" title="BI e scoring" text="Painéis, health score, previsão de churn e segmentação sem atrapalhar a primeira entrega." />
             <x-crm.feature icon="lock" title="Governança" text="Permissões, auditoria, LGPD, SLA e playbooks para uma operação comercial mais madura." />

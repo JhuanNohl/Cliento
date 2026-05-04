@@ -11,7 +11,6 @@ class Deal extends Model
 {
     public const STAGES = [
         'new' => 'Novo',
-        'qualified' => 'Qualificado',
         'proposal' => 'Proposta',
         'won' => 'Ganho',
         'lost' => 'Perdido',
