@@ -15,9 +15,9 @@ class DashboardController extends Controller
         $stats = [
             'companies' => $user->companies()->count(),
             'contacts' => $user->contacts()->count(),
-            'open_deals' => $user->deals()->whereNotIn('stage', ['won', 'lost'])->count(),
+            'open_deals' => $user->deals()->open()->count(),
             'forecast' => $user->deals()
-                ->whereNotIn('stage', ['won', 'lost'])
+                ->open()
                 ->selectRaw('COALESCE(SUM(value * probability / 100), 0) as total')
                 ->value('total'),
         ];

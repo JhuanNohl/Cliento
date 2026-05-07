@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class ContactController extends Controller
@@ -29,16 +30,16 @@ class ContactController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ContactRequest $request): RedirectResponse
     {
-        $request->user()->contacts()->create($this->validatedData($request));
+        $request->user()->contacts()->create($request->validated());
 
         return redirect()->route('contacts.index')->with('status', 'Contato cadastrado com sucesso.');
     }
 
     public function edit(Request $request, Contact $contact): View
     {
-        $this->authorizeOwner($request, $contact);
+        Gate::authorize('update', $contact);
 
         return view('contacts.edit', [
             'contact' => $contact,
@@ -46,41 +47,19 @@ class ContactController extends Controller
         ]);
     }
 
-    public function update(Request $request, Contact $contact): RedirectResponse
+    public function update(ContactRequest $request, Contact $contact): RedirectResponse
     {
-        $this->authorizeOwner($request, $contact);
-        $contact->update($this->validatedData($request));
+        $contact->update($request->validated());
 
         return redirect()->route('contacts.index')->with('status', 'Contato atualizado.');
     }
 
-    public function destroy(Request $request, Contact $contact): RedirectResponse
+    public function destroy(Contact $contact): RedirectResponse
     {
-        $this->authorizeOwner($request, $contact);
+        Gate::authorize('delete', $contact);
+
         $contact->delete();
 
         return redirect()->route('contacts.index')->with('status', 'Contato removido.');
-    }
-
-    private function validatedData(Request $request): array
-    {
-        return $request->validate([
-            'company_id' => [
-                'nullable',
-                Rule::exists('companies', 'id')->where('user_id', $request->user()->id),
-            ],
-            'name' => ['required', 'string', 'max:255'],
-            'role' => ['nullable', 'string', 'max:255'],
-            'email' => ['nullable', 'email', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:30'],
-            'source' => ['nullable', 'string', 'max:100'],
-            'last_contacted_at' => ['nullable', 'date'],
-            'notes' => ['nullable', 'string', 'max:2000'],
-        ]);
-    }
-
-    private function authorizeOwner(Request $request, Contact $contact): void
-    {
-        abort_unless($contact->user_id === $request->user()->id, 403);
     }
 }

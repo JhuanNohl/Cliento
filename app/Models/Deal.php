@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -11,10 +12,13 @@ class Deal extends Model
 {
     public const STAGES = [
         'new' => 'Novo',
+        'qualified' => 'Qualificado',
         'proposal' => 'Proposta',
         'won' => 'Ganho',
         'lost' => 'Perdido',
     ];
+
+    public const CLOSED_STAGES = ['won', 'lost'];
 
     protected function casts(): array
     {
@@ -37,5 +41,14 @@ class Deal extends Model
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
+    }
+
+    /**
+     * @param  Builder<Deal>  $query
+     * @return Builder<Deal>
+     */
+    public function scopeOpen(Builder $query): Builder
+    {
+        return $query->whereNotIn('stage', self::CLOSED_STAGES);
     }
 }

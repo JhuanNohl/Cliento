@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyRequest;
 use App\Models\Company;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class CompanyController extends Controller
@@ -29,16 +30,16 @@ class CompanyController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(CompanyRequest $request): RedirectResponse
     {
-        $request->user()->companies()->create($this->validatedData($request));
+        $request->user()->companies()->create($request->validated());
 
         return redirect()->route('companies.index')->with('status', 'Empresa cadastrada com sucesso.');
     }
 
     public function edit(Request $request, Company $company): View
     {
-        $this->authorizeOwner($request, $company);
+        Gate::authorize('update', $company);
 
         return view('companies.edit', [
             'company' => $company,
@@ -46,37 +47,19 @@ class CompanyController extends Controller
         ]);
     }
 
-    public function update(Request $request, Company $company): RedirectResponse
+    public function update(CompanyRequest $request, Company $company): RedirectResponse
     {
-        $this->authorizeOwner($request, $company);
-        $company->update($this->validatedData($request));
+        $company->update($request->validated());
 
         return redirect()->route('companies.index')->with('status', 'Empresa atualizada.');
     }
 
-    public function destroy(Request $request, Company $company): RedirectResponse
+    public function destroy(Company $company): RedirectResponse
     {
-        $this->authorizeOwner($request, $company);
+        Gate::authorize('delete', $company);
+
         $company->delete();
 
         return redirect()->route('companies.index')->with('status', 'Empresa removida.');
-    }
-
-    private function validatedData(Request $request): array
-    {
-        return $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'segment' => ['nullable', 'string', 'max:255'],
-            'website' => ['nullable', 'url', 'max:255'],
-            'city' => ['nullable', 'string', 'max:255'],
-            'state' => ['nullable', 'string', 'size:2'],
-            'status' => ['required', Rule::in(array_keys(Company::STATUSES))],
-            'notes' => ['nullable', 'string', 'max:2000'],
-        ]);
-    }
-
-    private function authorizeOwner(Request $request, Company $company): void
-    {
-        abort_unless($company->user_id === $request->user()->id, 403);
     }
 }
