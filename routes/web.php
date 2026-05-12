@@ -6,14 +6,18 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome')->name('home');
-Route::view('/estatisticas', 'crm.statistics')->name('crm.statistics');
-Route::view('/parceiros', 'crm.partners')->name('crm.partners');
-Route::view('/carteira', 'crm.wallet')->name('crm.wallet');
-Route::view('/vendas', 'crm.sales')->name('crm.sales');
-Route::view('/agenda', 'crm.agenda')->name('crm.agenda');
-Route::view('/oportunidades', 'crm.opportunities')->name('crm.opportunities');
-Route::view('/relatorios', 'crm.reports')->name('crm.reports');
+foreach ([
+    '/' => ['welcome', 'home'],
+    '/estatisticas' => ['crm.statistics', 'crm.statistics'],
+    '/parceiros' => ['crm.partners', 'crm.partners'],
+    '/carteira' => ['crm.wallet', 'crm.wallet'],
+    '/vendas' => ['crm.sales', 'crm.sales'],
+    '/agenda' => ['crm.agenda', 'crm.agenda'],
+    '/oportunidades' => ['crm.opportunities', 'crm.opportunities'],
+    '/relatorios' => ['crm.reports', 'crm.reports'],
+] as $uri => [$view, $name]) {
+    Route::view($uri, $view)->name($name);
+}
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');

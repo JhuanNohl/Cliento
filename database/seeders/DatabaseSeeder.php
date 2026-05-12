@@ -3,9 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Activity;
-use App\Models\Company;
-use App\Models\Contact;
-use App\Models\Deal;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

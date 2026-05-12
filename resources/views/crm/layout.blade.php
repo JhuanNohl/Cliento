@@ -996,7 +996,9 @@
     <div class="crm-shell">
         <aside class="sidebar" aria-label="CRM navigation">
             <a class="brand" href="{{ route('home') }}">
-                <span class="brand-mark glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span class="brand-mark" aria-hidden="true">
+                    <x-application-logo style="width: 24px; height: 24px;" />
+                </span>
                 <span>Cliento</span>
             </a>
 
@@ -1091,38 +1093,14 @@
                 </a>
             </li>
             <li>
-                <a class="settings-link reactive" href="#">
-                    <span class="nav-icon glyphicon glyphicon-tasks" aria-hidden="true"></span>
-                    <strong>Preferências <span>Idioma, moeda, formato de data e área de trabalho.</span></strong>
-                </a>
-            </li>
-            <li>
-                <a class="settings-link reactive" href="#">
-                    <span class="nav-icon glyphicon glyphicon-lock" aria-hidden="true"></span>
-                    <strong>Privacidade e cookies <span>Consentimento, cookies, rastreamento e retenção.</span></strong>
-                </a>
-            </li>
-            <li>
-                <a class="settings-link reactive" href="#">
-                    <span class="nav-icon glyphicon glyphicon-wrench" aria-hidden="true"></span>
-                    <strong>Configurações avançadas <span>Campos, permissões, automações e regras comerciais.</span></strong>
-                </a>
-            </li>
-            <li>
-                <a class="settings-link reactive" href="#">
-                    <span class="nav-icon glyphicon glyphicon-transfer" aria-hidden="true"></span>
-                    <strong>Integrações <span>Email, calendário, WhatsApp, ERP, pagamento e webhooks.</span></strong>
-                </a>
-            </li>
-            <li>
-                <a class="settings-link reactive" href="#">
+                <a class="settings-link reactive" href="{{ route('home') }}">
                     <span class="nav-icon glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                     <strong>Sobre o sistema <span>Plano, versão, suporte, auditoria e termos.</span></strong>
                 </a>
             </li>
         </ul>
 
-        <p class="settings-foot">Estas entradas mostram a ambição do produto sem inflar o MVP: o essencial funciona hoje, e as próximas camadas já têm lugar definido.</p>
+        <p class="settings-foot">O essencial fica visível para a apresentação, sem links mortos ou excesso de opções.</p>
     </aside>
 
     <script>
